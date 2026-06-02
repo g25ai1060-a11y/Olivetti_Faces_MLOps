@@ -1,6 +1,6 @@
 from sklearn.datasets import fetch_olivetti_faces
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 import joblib
 
@@ -14,13 +14,12 @@ y = data.target
 X_train, X_test, y_train, y_test = train_test_split(
     X,
     y,
-    test_size=0.2,
+    test_size=0.3,
     random_state=42
 )
 
 # Train model
-model = RandomForestClassifier(
-    n_estimators=100,
+model = DecisionTreeClassifier(
     random_state=42
 )
 
@@ -34,4 +33,4 @@ acc = accuracy_score(y_test, pred)
 print("Accuracy:", acc)
 
 # Save model
-joblib.dump(model, "face_model.pkl")
+joblib.dump(model, "savedmodel.pth")

@@ -2,7 +2,7 @@ import joblib
 from sklearn.datasets import fetch_olivetti_faces
 
 # Load model
-model = joblib.load("face_model.pkl")
+model = joblib.load("savedmodel.pth")
 
 # Load dataset
 data = fetch_olivetti_faces()
