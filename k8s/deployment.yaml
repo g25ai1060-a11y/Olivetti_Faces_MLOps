@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: face-app-deployment
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: face-app
+
+  template:
+    metadata:
+      labels:
+        app: face-app
+
+    spec:
+      containers:
+      - name: face-app
+
+        image: g25ai1060/olivetti-face-app:latest
+
+        ports:
+        - containerPort: 5000
